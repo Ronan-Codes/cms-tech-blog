@@ -2,7 +2,8 @@ const router = require('express').Router();
 const {
     User,
     Post,
-    Comment,
+    // Vote,
+    Comment
 } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -30,22 +31,22 @@ router.get('/:id', (req, res) => {
             },
             include: [{
                     model: Post,
-                    attributes: ['id', 'title', 'post_url', 'created_at']
+                    attributes: ['id', 'title', 'content', 'created_at', 'user_id']
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'created_at'],
+                    attributes: ['id', 'comment_text', 'created_at', 'post_id', 'user_id'],
                     include: {
                         model: Post,
                         attributes: ['title']
                     }
-                },
-                {
-                    model: Post,
-                    attributes: ['title'],
-                    through: Vote,
-                    as: 'voted_posts'
                 }
+                //, {
+                //     model: Post,
+                //     attributes: ['title'],
+                //     through: Vote,
+                //     as: 'voted_posts'
+                // }
             ]
         })
         .then(dbUserData => {
@@ -63,8 +64,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.post('/', withAuth, (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+router.post('/', (req, res) => {
     User.create({
             username: req.body.username,
             email: req.body.email,
@@ -85,8 +85,7 @@ router.post('/', withAuth, (req, res) => {
         });
 });
 
-router.post('/login', withAuth, (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
@@ -121,7 +120,7 @@ router.post('/login', withAuth, (req, res) => {
     });
 });
 
-router.post('/logout', withAuth, (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
@@ -132,9 +131,6 @@ router.post('/logout', withAuth, (req, res) => {
 });
 
 router.put('/:id', withAuth, (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-
-    // pass in req.body instead to only update what's passed through
     User.update(req.body, {
             individualHooks: true,
             where: {
