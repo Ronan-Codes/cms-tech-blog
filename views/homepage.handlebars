@@ -1,0 +1,19 @@
+<div class="container-fluid row">
+    <main>
+        {{#each posts as |post|}}
+        <div class="card mt-4 custom-box-shadow h-25">
+            <a class="link-light text-decoration-none" href="https://www.google.com">
+            <div class="card-header d-flex bg-secondary" id="post_title">
+                <span class="h4 me-auto">{{post.title}}</span> <span class="">Posted by {{user.username}} on
+                    {{post.created_at}}</span>
+            </div>
+            </a>
+            <div class="card-body overflow-auto">
+                <!-- <h5 class="card-title">Special title treatment</h5> -->
+                <p class="card-text" id="post_content">{{post.content}}</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+        {{/each}}
+    </main>
+</div>
