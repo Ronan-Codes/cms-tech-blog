@@ -4,7 +4,7 @@
         <div class="card mt-4 custom-box-shadow px-0 col-11 border-dark border-2">
             <a class="link-light text-decoration-none" data-bs-toggle="collapse" href="#cardBody{{post.id}}"
                 role="button" aria-expanded="false" aria-controls="cardBody">
-                <div class="card-header d-flex bg-secondary" id="post_title">
+                <div class="card-header d-flex bg-dark" id="post_title">
                     <span class="h4 me-auto">{{post.title}}</span> <span class="">Posted by {{user.username}} on
                         {{post.created_at}}</span>
                 </div>
@@ -22,12 +22,14 @@
                     </div>
                 </a>
                 <div class="collapse" id="commentBody{{post.id}}">
-
+                    {{#if post.comments}}
                     <div class="card-body overflow-auto comment-body p-0">
                         {{> comment post.comments}}
                     </div>
+                    {{else}}
+                    {{/if}}
 
-                    <div class="card-body comment-body p-0 row mx-0 bg-secondary">
+                    <div class="card-body comment-body p-0 row mx-0 bg-dark">
                         <form class="row comment-form justify-content-center mx-0">
                             <div class="mt-3 col-10">
                                 <textarea class="form-control hide-scroll" placeholder="Leave a comment here"

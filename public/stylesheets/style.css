@@ -27,16 +27,20 @@
 }
 
 .comment-body {
-    max-height: 200px;
+    max-height: 150px;
 }
 
 .comment-name-size {
-    font-size: .93rem;
+    font-size: .77rem;
 }
 
 .comment-font {
     line-height: 100%;
     /* background-color: #ffc926; */
+}
+
+.comment-text-size {
+    font-size: 0.80rem
 }
 
 ul {
