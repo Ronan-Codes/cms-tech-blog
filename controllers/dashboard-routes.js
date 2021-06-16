@@ -5,11 +5,14 @@ const {
     User,
     Comment
 } = require('../models');
+const withAuth = require('../utils/auth')
 
-// get all posts for homepage
-router.get('/', (req, res) => {
-    console.log('======================');
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
+            where: {
+                // use the ID from the session
+                user_id: req.session.user_id
+            },
             attributes: [
                 'id',
                 'title',
@@ -38,13 +41,13 @@ router.get('/', (req, res) => {
             ]
         })
         .then(dbPostData => {
+            // serialize data before passing to template
             const posts = dbPostData.map(post => post.get({
                 plain: true
             }));
-
-            res.render('homepage', {
+            res.render('dashboard', {
                 posts,
-                loggedIn: req.session.loggedIn
+                loggedIn: true
             });
         })
         .catch(err => {
@@ -53,8 +56,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// get single post
-router.get('/post/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
             where: {
                 id: req.params.id
@@ -97,25 +99,15 @@ router.get('/post/:id', (req, res) => {
                 plain: true
             });
 
-            res.render('single-post', {
+            res.render('edit-post', {
                 post,
-                // why not: req.session.loggedIn
-                loggedIn: true
-            });
+                loggedIn: req.session.loggedIn
+            })
         })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
-});
-
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
-
-    res.render('login');
-});
+})
 
 module.exports = router;

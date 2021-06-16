@@ -1,0 +1,37 @@
+<main class="row mx-2 justify-content-center">
+    <div class="card mt-4 custom-box-shadow px-0 col-11 border-warning border-2">
+
+    </div>
+
+    <div class="col-12 text-center">My Posts</div>
+
+    {{#each posts as |post|}}
+    <div class="card mt-4 custom-box-shadow px-0 col-11 border-dark border-2">
+        <a class="link-light text-decoration-none" data-bs-toggle="collapse" href="#edit-delete{{post.id}}"
+            role="button" aria-expanded="false" aria-controls="commentBody">
+            <div class="card-header d-flex bg-dark" id="post_title">
+                <span class="h4 me-auto"><i class="fas fa-caret-square-down"></i> {{post.title}}</span> <span
+                    class="">Posted by {{post.user.username}} on
+                    {{format_date post.created_at}}</span>
+            </div>
+        </a>
+
+    </div>
+
+    {{/each}}
+</main>
+
+{{!-- <div class="card-body row">
+    Hi
+</div> --}}
+
+{{!-- <div class="card mt-4 custom-box-shadow px-0 col-11 border-dark border-2">
+    <a class="link-light text-decoration-none" data-bs-toggle="collapse" href="#edit-delete{{post.id}}" role="button"
+        aria-expanded="false" aria-controls="commentBody">
+        <div class="card-header d-flex bg-dark" id="post_title">
+            <span class="h4 me-auto"><i class="fas fa-caret-square-down"></i> {{post.title}}</span> <span
+                class="">Posted by {{post.user.username}} on
+                {{format_date post.created_at}}</span>
+        </div>
+    </a>
+</div> --}}

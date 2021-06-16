@@ -23,11 +23,11 @@
 }
 
 .post-body {
-    max-height: 175px;
+    max-height: 300px;
 }
 
 .comment-body {
-    max-height: 150px;
+    max-height: 200px;
 }
 
 .comment-name-size {
