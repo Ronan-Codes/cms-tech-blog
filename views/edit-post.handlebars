@@ -1,0 +1,22 @@
+<main class="edit-wrapper col-10 rounded text-warning bg-secondary justify-content-center mt-4">
+    <form class="editForm row justify-content-center text-center">
+        <div class="my-3 col-10">
+            <label for="editTitle" class="form-label h4">Title</label>
+            <input type="text" class="form-control" id="editTitle" aria-describedby="editTitle" value="{{post.title}}">
+        </div>
+        <div class="mb-3 col-10">
+            <label for="editPostBody" class="form-label h4">Body</label>
+            <textarea class="form-control post-textarea" id="editPostBody">{{post.content}}</textarea>
+        </div>
+
+        <div class="col-10 mb-3 row justify-content-center">
+            <button type="click" class="btn btn-md btn-warning p-1 rounded col-1 text-" id="back-btn">Back</button>
+            <button type="submit" class="btn btn-md btn-warning p-1 mx-3 rounded col-1">Update</button>
+            <button type="click" class="btn btn-md btn-warning p-1 rounded col-1" id="delete-btn">Delete</button>
+        </div>
+    </form>
+</main>
+
+<script src="/javascript/back.js"></script>
+<script src="/javascript/update.js"></script>
+<script src="/javascript/delete.js"></script>

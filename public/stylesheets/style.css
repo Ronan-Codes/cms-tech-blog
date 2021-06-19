@@ -47,6 +47,58 @@ ul {
     list-style: none;
 }
 
+
+#editPostBody {
+    min-height: 225px;
+}
+
+footer {
+    position:absolute;
+    bottom:0;
+}
+
+
+/* Media query for only large screen */
+
+/* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
+
+/* total width */
+.post-textarea::-webkit-scrollbar,
+.comment-body::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.post-body::-webkit-scrollbar {
+    background-color: #fff;
+    width: 16px;
+}
+
+/* background of the scrollbar except button or resizer */
+.post-textarea::-webkit-scrollbar-track,
+.comment-body::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.post-body::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+/* scrollbar itself */
+.post-textarea::-webkit-scrollbar-thumb,
+.comment-body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.post-body::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+    border: 4px solid #fff;
+}
+
+/* set button(top and bottom of the scrollbar) */
+.post-textarea::-webkit-scrollbar-button,
+.comment-body::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button,
+.post-body::-webkit-scrollbar-button {
+    display:none;
+}
+
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scroll::-webkit-scrollbar {
     display: none;
@@ -59,30 +111,3 @@ ul {
     scrollbar-width: none;
     /* Firefox */
 }
-
-/* Media query for only large screen */
-
-.comment-body::-webkit-scrollbar-track,
-.post-body::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    background-color: #f5f5f500;
-}
-
-.comment-body::-webkit-scrollbar,
-.post-body::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    width: 12px;
-    background-color: #f5f5f500;
-}
-
-.comment-body::-webkit-scrollbar-thumb,
-.post-body::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: #e7e7e7;
-}
-
-/* just for comment body hide horizontal scroll */
