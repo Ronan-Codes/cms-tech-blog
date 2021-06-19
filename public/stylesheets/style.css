@@ -27,7 +27,7 @@
 }
 
 .comment-body {
-    max-height: 200px;
+    max-height: 150px;
 }
 
 .comment-name-size {
@@ -36,7 +36,6 @@
 
 .comment-font {
     line-height: 100%;
-    /* background-color: #ffc926; */
 }
 
 .comment-text-size {
@@ -51,12 +50,6 @@ ul {
 #editPostBody {
     min-height: 225px;
 }
-
-footer {
-    position:absolute;
-    bottom:0;
-}
-
 
 /* Media query for only large screen */
 
