@@ -7,7 +7,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sequelize = require('./config/connection.js');
+const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -21,7 +21,7 @@ const sess = {
 };
 app.use(session(sess));
 
-// const routes = require('./controllers');
+const routes = require('./controllers');
 // import sequelize connection
 
 // Tell handlebars.js about the helpers file
@@ -45,12 +45,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use statements END
 
 // turn on routes
-// app.use(routes);
+app.use(routes);
 
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({
     force: true
 }).then(() => {
-    app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
+    app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
 })
