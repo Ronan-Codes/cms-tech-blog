@@ -2,7 +2,7 @@
 
 ## Description
 
-* The Tech Blog allows developers to publish blog posts that other users can comment on. When logged in, users can update or delete their own posts. Users can also delete their own comments. This is a CMS-style blog, much like a Wordpress site.
+* The Tech Blog allows developers to publish blog posts that other users can comment on. When logged in, users can update or delete their own posts. This is a CMS-style blog, much like a Wordpress site.
 
  ## Table of Contents
 
@@ -45,7 +45,7 @@
 5. Now, you can sign-up/login, create a post, edit/delete your own post, & read/comment on other posts.
 
 ### Heroku
-1. Visit the live site at [heroku]()
+1. Visit the live site at [heroku](https://ronan-codes-cms-tech-blog.herokuapp.com/)
 2. Now, you can sign-up/login, create a post, edit/delete your own post, & read/comment on other posts.
 
 ## License
