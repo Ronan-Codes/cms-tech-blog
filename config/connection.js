@@ -15,3 +15,5 @@ if (process.env.JAWSDB_URL) {
 }
 
 module.exports = sequelize;
+
+// http://localhost:3001/
